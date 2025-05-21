@@ -1,8 +1,11 @@
 ﻿@page
-@model lilgobguides.Pages.Posts.DetailsModel
+@using Microsoft.AspNetCore.Identity
+@model lilgobguides.Pages.Posts.ShowPostModel
 @{
     ViewData["Title"] = Model.Post?.Title ?? "Post not found";
 }
+
+@inject SignInManager<IdentityUser> SignInManager
 
 @if (Model.Post == null)
 {
@@ -16,4 +19,9 @@ else
         <p>@Model.Post.Content</p>
     </article>
     <p><a asp-page="/Index">← Back to all posts</a></p>
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <a asp-page="/Posts/EditPost" asp-route-id="@Model.Post?.Id">Edit Post</a>
 }

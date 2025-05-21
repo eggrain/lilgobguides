@@ -1,8 +1,11 @@
 @page
 @model IndexModel
+@{
+    ViewData["Title"] = "Admin";
+}
 
-<h1>Admin</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div>
-    <a href="/posts/create">Create post</a>
+    <a asp-page="/Posts/NewPost">Create post</a>
 </div>

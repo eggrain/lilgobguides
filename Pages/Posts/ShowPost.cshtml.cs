@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lilgobguides.Pages.Posts;
 
-public class DetailsModel(AppDbContext db) : PageModel
+public class ShowPostModel(AppDbContext db) : PageModel
 {
     private readonly AppDbContext _db = db;
 

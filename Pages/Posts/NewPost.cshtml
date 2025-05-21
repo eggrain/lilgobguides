@@ -1,0 +1,22 @@
+@page
+@model lilgobguides.Pages.Posts.NewPostModel
+@{
+    ViewData["Title"] = "New post";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+  <partial name="_PostForm" model="Model.Post" />
+  <div class="mt-4">
+    <button type="submit" class="btn btn-primary">Create post</button>
+  </div>
+  
+</form>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

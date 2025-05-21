@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace lilgobguides.Pages.Posts;
 
 [Authorize]
-public class CreateModel(AppDbContext db) : PageModel
+public class NewPostModel(AppDbContext db) : PageModel
 {
     private readonly AppDbContext _db = db;
 
@@ -16,7 +16,6 @@ public class CreateModel(AppDbContext db) : PageModel
 
     public void OnGet()
     {
-        // nothing needed unless you want defaults
     }
 
     public async Task<IActionResult> OnPostAsync()
@@ -26,7 +25,6 @@ public class CreateModel(AppDbContext db) : PageModel
             Console.WriteLine("It was not valid");
             return Page();
         }
-            
 
         _db.Posts.Add(Post);
         await _db.SaveChangesAsync();
