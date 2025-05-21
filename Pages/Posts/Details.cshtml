@@ -1,0 +1,19 @@
+﻿@page
+@model lilgobguides.Pages.Posts.DetailsModel
+@{
+    ViewData["Title"] = Model.Post?.Title ?? "Post not found";
+}
+
+@if (Model.Post == null)
+{
+    <h1>Post not found</h1>
+    <p><a asp-page="/Index">Back to list</a></p>
+}
+else
+{
+    <article>
+        <h1>@Model.Post.Title</h1>
+        <p>@Model.Post.Content</p>
+    </article>
+    <p><a asp-page="/Index">← Back to all posts</a></p>
+}
