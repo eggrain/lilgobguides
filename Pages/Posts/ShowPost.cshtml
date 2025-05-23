@@ -2,14 +2,14 @@
 @using Microsoft.AspNetCore.Identity
 @model lilgobguides.Pages.Posts.ShowPostModel
 @{
-    ViewData["Title"] = Model.Post?.Title ?? "Post not found";
+    ViewData["Title"] = Model.Post.Title ?? "Post not found";
 }
 
 @inject SignInManager<IdentityUser> SignInManager
 
 <article>
     <h1>@Model.Post.Title</h1>
-    <p>@Model.Post.Content</p>
+    <p>@Html.Raw(Model.Post.Content)</p>
 </article>
 <p><a asp-page="/Index">← Back to all posts</a></p>
 

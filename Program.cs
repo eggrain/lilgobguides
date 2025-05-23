@@ -15,6 +15,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(
         .AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.AddRazorPages();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -39,5 +40,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapControllers();
 
 app.Run();

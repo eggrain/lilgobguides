@@ -6,7 +6,8 @@
     <span asp-validation-for="Title"></span>
 </div>
 <div>
-    <label asp-for="Content" class="form-label"></label>
-    <textarea asp-for="Content" class="form-control"></textarea>
-    <span asp-validation-for="Content"></span>
+    <label for="Content" class="form-label">Content</label>
+    <input id="Content" type="hidden" name="Content" value="@Model.Content" />
+    <trix-editor input="Content"></trix-editor>
+    <span asp-validation-for="Content" class="text-danger"></span>
 </div>

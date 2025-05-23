@@ -3,3 +3,4 @@ bin/
 lilgobguides.db
 lilgobguides.db-shm
 lilgobguides.db-wal
+wwwroot/uploads
