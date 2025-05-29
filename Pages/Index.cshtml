@@ -5,14 +5,14 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
+<div class="h-100 text-center morytania-background py-4">
     <h1 class="display-4">Lil Gob Slayer Guides</h1>
     <p>Follow these Old School Runescape Ultimate Iron guides at your own peril - goblilslayer.</p>
 
-    <div class="list-group">
+    <div class="list-group container" data-bs-theme="dark">
     @foreach (Post post in Model.Posts)
     {
-        <a class="list-group-item list-group-item-action text-light text-hover-dark"
+        <a class="list-group-item list-group-item-action text-light"
             asp-page="/Posts/ShowPost" asp-route-id="@post.Id">
             @post.Title
         </a>
