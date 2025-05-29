@@ -20,3 +20,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+span {
+  line-height: 1;
+  vertical-align: middle;
+}
