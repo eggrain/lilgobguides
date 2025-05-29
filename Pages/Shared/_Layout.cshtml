@@ -13,9 +13,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" data-bs-theme="dark">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">lilgobguides</a>
+                <a class="navbar-brand text-light" asp-area="" asp-page="/Index">lilgobguides</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,13 +23,16 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Skills</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Skills</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Items</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Items</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Bosses</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Bosses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Minigames</a>
                         </li>
                     </ul>
 
@@ -45,7 +48,7 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container d-flex justify-content-between px-2 py-1">
+        <div class="container d-flex justify-content-between px-2 py-1 text-light">
             &copy; 2025 - lilgobguides
         </div>
     </footer>
@@ -55,6 +58,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/trix@2.1.15/dist/trix.umd.min.js"></script>
     <script src="~/js/trix-upload.js"></script>
+    <script src="~/js/trix-config.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

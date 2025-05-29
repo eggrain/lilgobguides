@@ -25,3 +25,28 @@ span {
   line-height: 1;
   vertical-align: middle;
 }
+
+/* Customizing Bootstrap */
+:root {
+  --bs-body-bg: #000000f5;
+  --bs-body-color: #ffffff;
+
+  /* --bs-primary: #a09500;
+  --bs-secondary: #e5e5e5;
+  --bs-danger: #ff0800;
+  --bs-success: #607844;
+  --bs-info: #3a5c74;
+  --bs-warning: #ad7f2e;
+  --bs-light: #2e2e2e;
+  --bs-dark: #000; */
+}
+
+.text-hover-dark:hover {
+  color: var(--bs-dark) !important;
+}
+
+/* Customizing Trix */
+
+.trix-button  {
+  background-color: #ffffff !important;
+}
