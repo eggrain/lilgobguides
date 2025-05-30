@@ -3,4 +3,10 @@ bin/
 lilgobguides.db
 lilgobguides.db-shm
 lilgobguides.db-wal
-wwwroot/uploads
+wwwroot/uploads/
+node_modules/
+.sass-cache/
+scss/custom-bootstrap.css.map
+scss/custom-bootstrap.css
+wwwroot/css/bootstrap-custom.css
+wwwroot/css/bootstrap-custom.css.map
