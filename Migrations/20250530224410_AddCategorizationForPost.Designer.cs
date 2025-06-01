@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using lilgobguides.Data;
 
@@ -10,9 +11,11 @@ using lilgobguides.Data;
 namespace lilgobguides.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250530224410_AddCategorizationForPost")]
+    partial class AddCategorizationForPost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.16");
@@ -218,6 +221,9 @@ namespace lilgobguides.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("CategorizationId")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -231,12 +237,14 @@ namespace lilgobguides.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategorizationId");
+
                     b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("lilgobguides.Models.PostCategorization", b =>
                 {
-                    b.Property<string>("PostId")
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("Boss")
@@ -251,9 +259,9 @@ namespace lilgobguides.Migrations
                     b.Property<bool>("Skilling")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("PostId");
+                    b.HasKey("Id");
 
-                    b.ToTable("PostCategorizations");
+                    b.ToTable("PostCategorization");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -307,21 +315,13 @@ namespace lilgobguides.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("lilgobguides.Models.PostCategorization", b =>
-                {
-                    b.HasOne("lilgobguides.Models.Post", "Post")
-                        .WithOne("Categorization")
-                        .HasForeignKey("lilgobguides.Models.PostCategorization", "PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Post");
-                });
-
             modelBuilder.Entity("lilgobguides.Models.Post", b =>
                 {
-                    b.Navigation("Categorization")
-                        .IsRequired();
+                    b.HasOne("lilgobguides.Models.PostCategorization", "Categorization")
+                        .WithMany()
+                        .HasForeignKey("CategorizationId");
+
+                    b.Navigation("Categorization");
                 });
 #pragma warning restore 612, 618
         }

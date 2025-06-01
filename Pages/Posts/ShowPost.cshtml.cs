@@ -12,7 +12,7 @@ public class ShowPostModel(AppDbContext db) : PageModel
 
     public Post Post { get; set; } = new();
 
-    public async Task<IActionResult> OnGetAsync(int? id)
+    public async Task<IActionResult> OnGetAsync(string? id)
     {
         if (id == null) return NotFound();
 
@@ -25,7 +25,7 @@ public class ShowPostModel(AppDbContext db) : PageModel
         return Page();
     }
 
-    public async Task<IActionResult> OnPostDeleteAsync(int? id)
+    public async Task<IActionResult> OnPostDeleteAsync(string? id)
     {
         if (id == null) return NotFound();
 

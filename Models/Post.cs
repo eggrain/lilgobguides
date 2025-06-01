@@ -4,9 +4,14 @@ namespace lilgobguides.Models;
 
 public class Post
 {
-    public int Id { get; set; }
+    
+
+    [Key]
+    public string Id { get; set; } = Guid.NewGuid().ToString();
     [Required]
-    public string Title { get; set; } = default!;
-    public string Content { get; set; } = default!;
+    public string Title { get; set; } = null!;
+    public string Content { get; set; } = null!;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    public PostCategorization Categorization { get; set; } = new();
 }

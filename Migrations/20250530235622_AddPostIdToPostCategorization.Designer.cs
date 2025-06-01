@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using lilgobguides.Data;
 
@@ -10,9 +11,11 @@ using lilgobguides.Data;
 namespace lilgobguides.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250530235622_AddPostIdToPostCategorization")]
+    partial class AddPostIdToPostCategorization
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.16");
@@ -236,7 +239,7 @@ namespace lilgobguides.Migrations
 
             modelBuilder.Entity("lilgobguides.Models.PostCategorization", b =>
                 {
-                    b.Property<string>("PostId")
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("Boss")
@@ -248,12 +251,19 @@ namespace lilgobguides.Migrations
                     b.Property<bool>("Minigame")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("PostId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("Skilling")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("PostId");
+                    b.HasKey("Id");
 
-                    b.ToTable("PostCategorizations");
+                    b.HasIndex("PostId")
+                        .IsUnique();
+
+                    b.ToTable("PostCategorization");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

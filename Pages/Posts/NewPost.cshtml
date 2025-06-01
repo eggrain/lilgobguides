@@ -8,7 +8,7 @@
   <h1>@ViewData["Title"]</h1>
 
   <form method="post">
-    <partial name="_PostForm" model="Model.Post" />
+    @await Html.PartialAsync("_PostForm", Model.Post)
     <div class="mt-4">
       <button type="submit" class="btn btn-primary">Create post</button>
     </div>

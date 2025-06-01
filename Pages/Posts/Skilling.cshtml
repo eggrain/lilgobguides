@@ -1,0 +1,21 @@
+@page
+@using lilgobguides.Models
+@model lilgobguides.Pages.Posts.SkillingModel
+@{
+    ViewData["Title"] = "Skilling guides";
+}
+
+<h1 class="mb-4">
+    Skilling Guides
+</h1>
+
+<div class="d-flex" data-bs-theme="dark">
+@foreach (Post post in Model.Posts)
+{
+    <a class="card" style="width: 18rem" asp-page="/Posts/ShowPost" asp-route-id="@post.Id">
+        <div class="card-body">
+            <p class="card-title">@post.Title</p>
+        </div>
+    </a>
+}
+</div>

@@ -8,4 +8,5 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
                                     : IdentityDbContext(options)
 {
     public DbSet<Post> Posts { get; set; }
+    public DbSet<PostCategorization> PostCategorizations { get; set;  }
 }
