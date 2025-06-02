@@ -12,10 +12,6 @@
 <div class="d-flex" data-bs-theme="dark">
 @foreach (Post post in Model.Posts)
 {
-    <a class="card" style="width: 18rem" asp-page="/Posts/ShowPost" asp-route-id="@post.Id">
-        <div class="card-body">
-            <p class="card-title">@post.Title</p>
-        </div>
-    </a>
+    <partial name="_PostCard" model="post" />
 }
 </div>

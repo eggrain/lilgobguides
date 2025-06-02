@@ -17,7 +17,8 @@ public class EditPostModel(AppDbContext db) : PageModel
     {
         if (id == null) return NotFound();
 
-        Post? post = await _db.Posts.Where(p => p.Id == id)
+        Post? post = await _db.Posts.Include(p => p.Categorization)
+                    .Where(p => p.Id == id)
                     .AsNoTracking().FirstOrDefaultAsync();
 
         if (post == null) return NotFound();
@@ -33,7 +34,9 @@ public class EditPostModel(AppDbContext db) : PageModel
             return Page();
         }
 
-        Post? post = await _db.Posts.Where(p => p.Id == id)
+        Post? post = await _db.Posts
+                            .Include(p => p.Categorization)
+                            .Where(p => p.Id == id)
                             .FirstOrDefaultAsync();
 
         if (post == null) return NotFound();

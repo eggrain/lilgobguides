@@ -1,0 +1,18 @@
+@using System.Text.RegularExpressions
+@model lilgobguides.Models.Post
+
+<div class="card" style="width:18rem" asp-page="/Posts/ShowPost" asp-route-id="@Model.Id">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">
+            @{
+                var text = Regex.Replace(Model.Content, "<.*?>", "");
+                if (text.Length > 200) {
+                    @($"{text.Substring(0,100)}...")
+                } else {
+                    @text
+                }
+            }
+        </p>
+    </div>
+</div>
