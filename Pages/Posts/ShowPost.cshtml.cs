@@ -29,8 +29,7 @@ public class ShowPostModel(AppDbContext db) : PageModel
     {
         if (id == null) return NotFound();
 
-        Post? post = await _db.Posts.AsNoTracking()
-            .FirstOrDefaultAsync(p => p.Id == id);
+        Post? post = await _db.Posts.FirstOrDefaultAsync(p => p.Id == id);
         if (post == null) return NotFound();
 
         _db.Posts.Remove(post);

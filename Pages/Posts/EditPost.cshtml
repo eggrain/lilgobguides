@@ -5,14 +5,11 @@
     ViewData["Title"] = "Edit post";
 }
 
-<div class="container py-4">
-  <h1>@ViewData["Title"]</h1>
+<h1>@ViewData["Title"]</h1>
 
-  <form method="post">
-    <partial name="_PostForm" for="Post" />
-    <div class="mt-4">
-      <button type="submit" class="btn btn-primary">Update post</button>
-    </div>
-    
-  </form>
-</div>
+<form method="post">
+  <partial name="_PostForm" for="Post" />
+  <div class="mt-4">
+    <button type="submit" class="btn btn-primary">Update post</button>
+  </div>
+</form>

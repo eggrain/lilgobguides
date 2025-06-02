@@ -4,8 +4,6 @@ namespace lilgobguides.Models;
 
 public class Post
 {
-    
-
     [Key]
     public string Id { get; set; } = Guid.NewGuid().ToString();
     [Required]
@@ -14,4 +12,9 @@ public class Post
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public PostCategorization Categorization { get; set; } = new();
+
+    public Post()
+    {
+        Categorization.PostId = Id;
+    }
 }

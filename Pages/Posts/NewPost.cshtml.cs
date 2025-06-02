@@ -23,6 +23,11 @@ public class NewPostModel(AppDbContext db) : PageModel
         if (!ModelState.IsValid)
         {
             Console.WriteLine("It was not valid");
+            foreach (var kv in ModelState
+           .Where(kv => kv.Value.Errors.Count > 0))
+        {
+            Console.WriteLine($"{kv.Key}: {string.Join(", ", kv.Value.Errors.Select(e => e.ErrorMessage))}");
+        }
             return Page();
         }
 

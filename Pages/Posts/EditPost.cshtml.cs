@@ -38,9 +38,9 @@ public class EditPostModel(AppDbContext db) : PageModel
         Console.WriteLine($"Prebind: Post.Categorization == null? {Post.Categorization == null}");
         foreach (var kv in ModelState
            .Where(kv => kv.Value.Errors.Count > 0))
-{
-    Console.WriteLine($"{kv.Key}: {string.Join(", ", kv.Value.Errors.Select(e => e.ErrorMessage))}");
-}
+        {
+            Console.WriteLine($"{kv.Key}: {string.Join(", ", kv.Value.Errors.Select(e => e.ErrorMessage))}");
+        }
 
         if (!ModelState.IsValid)
         {
