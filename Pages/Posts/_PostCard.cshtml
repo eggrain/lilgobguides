@@ -1,7 +1,13 @@
 @using System.Text.RegularExpressions
 @model lilgobguides.Models.Post
 
-<div class="card" style="width:18rem" asp-page="/Posts/ShowPost" asp-route-id="@Model.Id">
+<div class="card" style="width:20rem" asp-page="/Posts/ShowPost" asp-route-id="@Model.Id">
+    @if (Model.HeaderImageData != null && Model.HeaderImageContentType != null)
+    {
+        var base64 = Convert.ToBase64String(Model.HeaderImageData);
+        var imgSrc = $"data:{Model.HeaderImageContentType};base64,{base64}";
+        <img src="@imgSrc" class="card-img-top" alt="Header Image" />
+    }
     <div class="card-body">
         <h5 class="card-title">@Model.Title</h5>
         <p class="card-text">
@@ -14,5 +20,8 @@
                 }
             }
         </p>
+        <a asp-page="/Posts/ShowPost" asp-route-id="@Model.Id" class="btn btn-primary">
+            Read more
+        </a>
     </div>
 </div>

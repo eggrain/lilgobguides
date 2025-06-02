@@ -2,18 +2,21 @@
 
 <input type="hidden" asp-for="Id" />
 <input type="hidden" asp-for="Categorization.PostId" />
+
 <div>
     <label asp-for="Title" class="form-label"></label>
     <input asp-for="Title" class="form-control" />
     <span asp-validation-for="Title"></span>
 </div>
+
 <div class="my-2">
     <label for="Content" class="form-label">Content</label>
     <input id="Content" type="hidden" asp-for="Content" />
     <trix-editor input="Content"></trix-editor>
     <span asp-validation-for="Content" class="text-danger"></span>
 </div>
-<div class="mt-2">
+
+<div class="my-2">
     <div class="form-check">
         <label class="form-check-label" asp-for="Categorization.Skilling"></label>
         <input class="form-check-input" type="checkbox" asp-for="Categorization.Skilling" class="form-control" />
@@ -30,4 +33,9 @@
         <label class="form-check-label" asp-for="Categorization.Boss"></label>
         <input class="form-check-input" type="checkbox" asp-for="Categorization.Boss" class="form-control" />
     </div>
+</div>
+
+<div class="mt-2">
+    <label for="HeaderImageFile" class="form-label">Header Image</label>
+    <input type="file" class="form-control" id="HeaderImageFile" name="HeaderImageFile" />
 </div>

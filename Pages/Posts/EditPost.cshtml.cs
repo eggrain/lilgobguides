@@ -13,6 +13,9 @@ public class EditPostModel(AppDbContext db) : PageModel
     [BindProperty]
     public Post Post { get; set; } = null!;
 
+    [BindProperty]
+    public IFormFile? HeaderImageFile { get; set; }
+
     public async Task<IActionResult> OnGetAsync(string? id)
     {
         if (id == null) return NotFound();
@@ -50,8 +53,22 @@ public class EditPostModel(AppDbContext db) : PageModel
         post.Categorization.Item = Post.Categorization.Item;
         post.Categorization.Boss = Post.Categorization.Boss;
 
+        if (HeaderImageFile != null && HeaderImageFile.Length > 0)
+        {
+            using var ms = new MemoryStream();
+            await HeaderImageFile.CopyToAsync(ms);
+            post.HeaderImageData = ms.ToArray();
+            post.HeaderImageContentType = HeaderImageFile.ContentType;
+        }
+        else
+        {
+            Console.WriteLine("There was no header image");
+            _db.Entry(post).Property(p => p.HeaderImageData).IsModified = false;
+            _db.Entry(post).Property(p => p.HeaderImageContentType).IsModified = false;
+        }
+
         await _db.SaveChangesAsync();
 
-        return RedirectToPage("/Posts/ShowPost", new { Post.Id });
+        return RedirectToPage("/Posts/ShowPost", new { post.Id });
     }
 }

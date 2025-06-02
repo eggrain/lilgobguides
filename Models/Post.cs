@@ -17,4 +17,9 @@ public class Post
     {
         Categorization.PostId = Id;
     }
+
+    public byte[]? HeaderImageData { get; set; }
+
+    // (e.g. "image/png")
+    public string? HeaderImageContentType { get; set; }
 }

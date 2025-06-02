@@ -7,7 +7,7 @@
 <div class="container py-4">
   <h1>@ViewData["Title"]</h1>
 
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     @await Html.PartialAsync("_PostForm", Model.Post)
     <div class="mt-4">
       <button type="submit" class="btn btn-primary">Create post</button>
