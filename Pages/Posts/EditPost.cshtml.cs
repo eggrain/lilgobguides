@@ -67,6 +67,8 @@ public class EditPostModel(AppDbContext db) : PageModel
             _db.Entry(post).Property(p => p.HeaderImageContentType).IsModified = false;
         }
 
+        post.Featured = Post.Featured;
+
         await _db.SaveChangesAsync();
 
         return RedirectToPage("/Posts/ShowPost", new { post.Id });

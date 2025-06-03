@@ -22,4 +22,6 @@ public class Post
 
     // (e.g. "image/png")
     public string? HeaderImageContentType { get; set; }
+
+    public bool Featured { get; set;  }
 }

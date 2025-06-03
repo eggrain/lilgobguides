@@ -23,19 +23,24 @@
     </div>
     <div class="form-check">
         <label class="form-check-label" asp-for="Categorization.Minigame"></label>
-        <input class="form-check-input" type="checkbox" asp-for="Categorization.Minigame" class="form-control" />
+        <input class="form-check-input" type="checkbox" asp-for="Categorization.Minigame" />
     </div>
     <div class="form-check">
         <label class="form-check-label" asp-for="Categorization.Item"></label>
-        <input class="form-check-input" type="checkbox" asp-for="Categorization.Item" class="form-control" />
+        <input class="form-check-input" type="checkbox" asp-for="Categorization.Item" />
     </div>
     <div class="form-check">
         <label class="form-check-label" asp-for="Categorization.Boss"></label>
-        <input class="form-check-input" type="checkbox" asp-for="Categorization.Boss" class="form-control" />
+        <input class="form-check-input" type="checkbox" asp-for="Categorization.Boss" />
     </div>
 </div>
 
-<div class="mt-2">
-    <label for="HeaderImageFile" class="form-label">Header Image</label>
+<div class="my-2" data-bs-theme="dark">
+    <label for="HeaderImageFile" class="form-label">Post Card Header Image</label>
     <input type="file" class="form-control" id="HeaderImageFile" name="HeaderImageFile" />
+</div>
+
+<div class="form-check mt-2">
+    <label for="Featured" class="form-check-label">Featured post</label>
+    <input class="form-check-input" type="checkbox" asp-for="Featured" />
 </div>

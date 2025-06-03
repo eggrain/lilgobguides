@@ -5,17 +5,20 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="h-100 text-center py-4">
-    <h1 class="display-4">Lil Gob Slayer Guides</h1>
-    <p>Follow these Old School Runescape Ultimate Iron guides at your own peril - goblilslayer.</p>
+<h1>lil gob slayer guides</h1>
 
-    <div class="list-group container" data-bs-theme="dark">
-    @foreach (Post post in Model.Posts)
-    {
-        <a class="list-group-item list-group-item-action text-light"
-            asp-page="/Posts/ShowPost" asp-route-id="@post.Id">
-            @post.Title
-        </a>
-    }
-    </div>
+<figure>
+    <blockquote class="blockquote">
+    <p>Follow my Old School Runescape Ultimate Iron guides at your own peril...</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+    goblilslayer
+    </figcaption>
+</figure>
+
+<div class="d-flex flex-wrap column-gap-3 row-gap-3" data-bs-theme="dark">
+@foreach (Post post in Model.Featured)
+{
+    <partial name="Posts/_PostCard" model="post" />
+}
 </div>
