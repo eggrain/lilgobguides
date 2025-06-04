@@ -1,11 +1,13 @@
 using lilgobguides.Data;
 using lilgobguides.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace lilgobguides.Pages.Posts;
 
+[Authorize]
 public class EditPostModel(AppDbContext db) : PageModel
 {
     private readonly AppDbContext _db = db;
