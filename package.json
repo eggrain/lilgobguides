@@ -4,7 +4,7 @@
   "description": "Next work: include Bootstrap files and customize with SCSS",
   "main": "index.js",
   "scripts": {
-    "postinstall": "copy \"node_modules\\bootstrap\\dist\\js\\bootstrap.bundle.min.js\" \"wwwroot\\js\\bootstrap.bundle.min.js\""
+    "postinstall": "copyfiles --create-dirs \"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js\" \"wwwroot/js\""
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
     "lilgobguides": "file:"
   },
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "sass": "^1.89.0"
   }
 }
