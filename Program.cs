@@ -4,11 +4,19 @@ using lilgobguides.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-string dbConnection = builder.Configuration.GetConnectionString("DefaultConnection")
+string dbConnection = null!;
+if (builder.Environment.IsDevelopment())
+{
+    dbConnection = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("No database connection string");
-
+}
+else if (builder.Environment.IsProduction())
+{
+    dbConnection = builder.Configuration["lilgobguides_DATABASE_PATH"]
+    ?? throw new InvalidOperationException("Is there environment variable for database path?");
+}
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(dbConnection));
+        options.UseSqlite(dbConnection));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(
     options => options.SignIn.RequireConfirmedAccount = false)
