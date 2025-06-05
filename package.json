@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build-bootstrap-css": "sass scss/custom-bootstrap.scss wwwroot/css/bootstrap-custom.css",
-    "build-bootstrap-js": "node_modules/.bin/copyfiles --create-dirs \"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js\" \"wwwroot/js\""
+    "build-bootstrap-js-win": "copy \"node_modules\\bootstrap\\dist\\js\\bootstrap.bundle.min.js\" \"wwwroot\\js\\bootstrap.bundle.min.js\"",
+    "build-bootstrap-js-linux": "cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js wwwroot/js/bootstrap.bundle.min.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.3.6",
-    "copyfiles": "^2.4.1",
     "lilgobguides": "file:",
     "sass": "^1.89.0"
   }
