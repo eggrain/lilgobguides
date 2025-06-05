@@ -20,9 +20,12 @@ jobs:
       - name: Install npm packages
         working-directory: .
         run: npm install
-      - name: Build CSS
+      - name: Build Bootstrap CSS
         working-directory: .
-        run: npm run build-css
+        run: npm run build-bootstrap-css
+      - name: Build Bootstrap JS
+        working-directory: .
+        run: npm run build-bootstrap-js
       - name: Publish self-contained executable
         run: dotnet publish . -r linux-arm64 --self-contained true
       - name: SCP dotnet executable to VM
