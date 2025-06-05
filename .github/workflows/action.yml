@@ -23,9 +23,24 @@ jobs:
       - name: Build Bootstrap CSS
         working-directory: .
         run: npm run build-bootstrap-css
+      - name: show node_modules/bootstrap files
+        working-directory: .
+        run: |
+          echo "→ node_modules/bootstrap/dist/js:"
+          ls -l node_modules/bootstrap/dist/js || echo "(not found)"
+      - name: show existing wwwroot/js
+        working-directory: .
+        run: |
+          echo "→ before copy, wwwroot/js contains:"
+          ls -l wwwroot/js || echo "(empty or folder missing)"
       - name: Build Bootstrap JS
         working-directory: .
         run: npm run build-bootstrap-js
+      - name: verify copy succeeded
+        working-directory: .
+        run: |
+          echo "→ after copy, wwwroot/js contains:"
+          ls -l wwwroot/js || echo "(still empty)"
       - name: Publish self-contained executable
         run: dotnet publish . -r linux-arm64 --self-contained true
       - name: SCP dotnet executable to VM
