@@ -4,7 +4,8 @@
   "description": "Old School Runescape Guides For Ultimate Irons",
   "main": "index.js",
   "scripts": {
-    "postinstall": "copyfiles --create-dirs \"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js\" \"wwwroot/js\""
+    "postinstall": "copyfiles --create-dirs \"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js\" \"wwwroot/js\"",
+    "build-css": "sass scss/custom-bootstrap.scss wwwroot/css/bootstrap-custom.css"
   },
   "keywords": [],
   "author": "",
