@@ -1,7 +1,7 @@
 {
   "name": "lilgobguides",
   "version": "1.0.0",
-  "description": "Next work: include Bootstrap files and customize with SCSS",
+  "description": "Old School Runescape Guides For Ultimate Irons",
   "main": "index.js",
   "scripts": {
     "postinstall": "copyfiles --create-dirs \"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js\" \"wwwroot/js\""
@@ -11,10 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.3.6",
-    "lilgobguides": "file:"
-  },
-  "devDependencies": {
     "copyfiles": "^2.4.1",
+    "lilgobguides": "file:",
     "sass": "^1.89.0"
   }
 }

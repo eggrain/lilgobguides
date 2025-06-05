@@ -20,10 +20,10 @@ jobs:
       - name: Install npm packages
         working-directory: .
         run: npm install
-      - name: Compile SCSS → wwwroot/css/bootstrap-custom.css
+      - name: Compile SCSS to wwwroot/css/bootstrap-custom.css
         working-directory: .
         run: |
-          npx sass scss/custom-bootstrap.scss wwwroot/css/bootstrap-custom.css
+          sass scss/custom-bootstrap.scss wwwroot/css/bootstrap-custom.css
       - name: Publish self-contained executable
         run: dotnet publish . -r linux-arm64 --self-contained true
       - name: SCP dotnet executable to VM
