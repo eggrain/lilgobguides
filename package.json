@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-bootstrap-css": "sass scss/custom-bootstrap.scss wwwroot/css/bootstrap-custom.css",
-    "build-bootstrap-js": "copyfiles --create-dirs \"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js\" \"wwwroot/js\""
+    "build-bootstrap-js": "node_modules/.bin/copyfiles --create-dirs \"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js\" \"wwwroot/js\""
   },
   "keywords": [],
   "author": "",
