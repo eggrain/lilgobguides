@@ -13,15 +13,16 @@ html {
 }
 
 html {
+  margin: 0;
   position: relative;
   min-height: 100%;
   height: 100%;
 }
 
 body {
+  margin: 0;
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
   height: 100%;
 }
 
@@ -34,22 +35,25 @@ span {
   vertical-align: middle;
 }
 
-/* Customizing Bootstrap */
-:root {
-  --bs-body-bg: #000000f5;
-  --bs-body-color: #ffffff;
-}
-
 /* Customizing Trix */
 
 .trix-button  {
   background-color: #ffffff !important;
 }
 
-.morytania-background {
-  background-image: url('/images/morytania-background.png');
-  background-size: color;
-  background-position: center;
+.site-background {
+background-image:
+    linear-gradient(to bottom, transparent 0%, black 100%),
+    linear-gradient(to right,  transparent 0%, black 100%),
+    url('/images/morytania.png');
+  background-size:
+    100% 100%,
+    100% 100%,
+    cover;
+  background-repeat: no-repeat;
+  background-attachment:
+    fixed, fixed, /* pin both fades to the viewport */
+    scroll;       /* let the photo scroll normally */
 }
 
 .outside-legends-guild-background {

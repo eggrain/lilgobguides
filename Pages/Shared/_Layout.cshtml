@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 </head>
-<body>
-    <header class="morytania-background">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow" data-bs-theme="dark">
+<body class="site-background">
+    <header class="bg-transparent pb-2">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow" data-bs-theme="dark">
             <div class="container">
                 <a class="navbar-brand text-light" asp-area="" asp-page="/Index">lilgobguides</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -22,19 +22,18 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <li class="nav-item d-sm-none">
                             <a class="nav-link text-light" asp-area="" asp-page="/Posts/Skilling">Skilling</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-sm-none">
                             <a class="nav-link text-light" asp-area="" asp-page="/Posts/Minigames">Minigames</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-sm-none">
                             <a class="nav-link text-light" asp-area="" asp-page="/Posts/Items">Items</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-sm-none">
                             <a class="nav-link text-light" asp-area="" asp-page="/Posts/Bosses">Bosses</a>
                         </li>
-                        
                     </ul>
 
                     @await Html.PartialAsync("_LoginPartial")
@@ -42,21 +41,36 @@
             </div>
         </nav>
     </header>
-    <main role="main" class="flex-grow-1 container my-4">
-        @RenderBody()
+    <main role="main" class="d-flex flex-row">
+        <div class="bg-transparent px-4 d-none d-sm-block text-end">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-light" asp-area="" asp-page="/Posts/Skilling">Skilling</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" asp-area="" asp-page="/Posts/Minigames">Minigames</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" asp-area="" asp-page="/Posts/Items">Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" asp-area="" asp-page="/Posts/Bosses">Bosses</a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="box-shadow rounded flex-grow-1 px-4 container">
+            @RenderBody()
+        </div>
     </main>
 
-    <footer class="outside-legends-guild-background border-top text-muted p-4 text-light"
-            data-bs-theme="dark">
+    <footer class="box-shadow text-muted p-4 text-light" data-bs-theme="dark">
         <div class="d-flex justify-content-between align-items-center container">
             <span>&copy; 2025 - lilgobguides</span>
        
-            <div class="img-thumbnail d-flex column-gap-1 align-items-center flex-column">
-                <span class="fs-6">awooo!</span>
-                <img src="/images/wolf.png" width="25px" height="25px" alt="awooo" />
+            <div class="float-end img-thumbnail" title="awooo!">
+                <img src="/images/wolf.png" width="25px" height="25px" alt="awooo!" /> 
             </div>
-            
-        
         </div>
     </footer>
 
