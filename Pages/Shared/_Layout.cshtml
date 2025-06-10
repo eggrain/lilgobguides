@@ -12,7 +12,7 @@
 
 </head>
 <body class="site-background">
-    <header class="bg-transparent pb-2">
+    <header class="bg-transparent">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow" data-bs-theme="dark">
             <div class="container">
                 <a class="navbar-brand text-light" asp-area="" asp-page="/Index">lilgobguides</a>
@@ -59,7 +59,7 @@
                 
             </ul>
         </div>
-        <div class="box-shadow rounded flex-grow-1 px-4 container">
+        <div class="box-shadow flex-grow-1 p-4 container border-start border-top border-bottom bg-black" data-bs-theme="dark">
             @RenderBody()
         </div>
     </main>
@@ -68,9 +68,7 @@
         <div class="d-flex justify-content-between align-items-center container">
             <span>&copy; 2025 - lilgobguides</span>
        
-            <div class="float-end img-thumbnail" title="awooo!">
-                <img src="/images/wolf.png" width="25px" height="25px" alt="awooo!" /> 
-            </div>
+            <img src="/images/wolf.png" width="25px" height="25px" alt="awooo!" title="awooo!" /> 
         </div>
     </footer>
 

@@ -41,6 +41,10 @@ span {
   background-color: #ffffff !important;
 }
 
+trix-editor {
+  background-color: black;
+}
+
 .site-background {
 background-image:
     linear-gradient(to bottom, transparent 0%, black 100%),
@@ -56,12 +60,7 @@ background-image:
     scroll;       /* let the photo scroll normally */
 }
 
-.outside-legends-guild-background {
-  background-image: url('/images/outside-legends-guild.png');
-  background-size: color;
-  background-position: center;
-}
-
 a:hover {
   text-decoration: underline dotted;
 }
+
