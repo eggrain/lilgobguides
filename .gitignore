@@ -11,3 +11,4 @@ scss/custom-bootstrap.css
 wwwroot/css/bootstrap-custom.css
 wwwroot/css/bootstrap-custom.css.map
 wwwroot/js/bootstrap.bundle.min.js
+wwwroot/js/trix.esm.min.js
