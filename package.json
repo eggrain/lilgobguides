@@ -8,9 +8,9 @@
     "build-bootstrap-js-win": "copy \"node_modules\\bootstrap\\dist\\js\\bootstrap.bundle.min.js\" \"wwwroot\\js\\bootstrap.bundle.min.js\"",
     "build-bootstrap-js-linux": "cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js wwwroot/js/bootstrap.bundle.min.js",
     "build-trix-js-win":    "copy \"node_modules\\trix\\dist\\trix.esm.min.js\" \"wwwroot\\js\\trix.esm.min.js\"",
-    "build-trix-js-linux":  "cp node_modules/trix/dist/trix.esm.min.js wwwroot/js/trix.esm.min.js\"",
+    "build-trix-js-linux":  "cp node_modules/trix/dist/trix.esm.min.js wwwroot/js/trix.esm.min.js",
     "build-trix-css-win":   "copy \"node_modules\\trix\\dist\\trix.css\" \"wwwroot\\css\\trix.css\"",
-    "build-trix-css-linux": "cp node_modules/trix/dist/trix.css wwwroot/css/trix.css\"",
+    "build-trix-css-linux": "cp node_modules/trix/dist/trix.css wwwroot/css/trix.css",
 
     "build-assets-win":   "npm run build-bootstrap-js-win  && npm run build-trix-js-win  && npm run build-trix-css-win",
     "build-assets-linux": "npm run build-bootstrap-js-linux && npm run build-trix-js-linux && npm run build-trix-css-linux"
