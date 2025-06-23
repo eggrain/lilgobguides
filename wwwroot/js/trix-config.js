@@ -1,3 +1,7 @@
-addEventListener("trix-initialize", function (event) {
-  Trix.config.blockAttributes.heading1.tagName = "h2";
-});
+
+// Trix.config.blockAttributes.heading1 = {
+// tagName:        "h2",
+// breakOnReturn:  true,
+// terminal:       true,
+// group:          false
+// };
