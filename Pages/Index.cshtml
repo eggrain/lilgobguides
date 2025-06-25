@@ -5,21 +5,13 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="d-flex flex-wrap column-gap-3 row-gap-3" data-bs-theme="dark">
-    <div class="d-flex flex-column align-items-center row-gap-3">
-        <div>
-        <h1>lil gob slayer guides</h1>
+<div class="text-center">
+    <h1>lil gob slayer guides</h1>
 
-        <p class="blockquote mb-0">Old School Runescape guides for Ultimate Irons...</p>
-        </div>
+    <p class="fs-4">Old School Runescape guides for Ultimate Irons...</p>
+</div>
 
-        <figure class="figure" style="max-width: 16rem">
-            <img src="/images/stamping.png" class="figure-img img-fluid rounded" />
-            <figcaption class="text-center figure-caption">
-                Me, goblilslayer, creator of lilgobguides
-            </figcaption>
-        </figure>
-    </div>
+<div class="d-flex justify-content-around align-items-start flex-wrap column-gap-3 row-gap-5">
     @foreach (Post post in Model.Featured)
     {
         <partial name="Posts/_PostCard" model="post" />

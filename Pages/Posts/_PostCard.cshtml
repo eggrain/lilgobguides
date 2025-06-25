@@ -1,7 +1,7 @@
 @using System.Text.RegularExpressions
 @model lilgobguides.Models.Post
 
-<div class="card align-self-center" style="max-width:20rem" asp-page="/Posts/ShowPost" asp-route-id="@Model.Id">
+<div class="card" style="max-width:20rem" asp-page="/Posts/ShowPost" asp-route-id="@Model.Id">
     @if (Model.HeaderImageData != null && Model.HeaderImageContentType != null)
     {
         var base64 = Convert.ToBase64String(Model.HeaderImageData);

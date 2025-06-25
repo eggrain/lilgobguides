@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
@@ -21,9 +24,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 </head>
-<body class="site-background">
+<body class="site-background d-flex flex-column" data-bs-theme="dark">
     <header class="bg-transparent">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow">
             <div class="container">
                 <a class="navbar-brand text-light" asp-area="" asp-page="/Index">lilgobguides</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -51,9 +54,18 @@
             </div>
         </nav>
     </header>
-    <main role="main" class="d-flex flex-row">
-        <div class="bg-transparent px-4 d-none d-sm-block text-end">
-            <ul class="navbar-nav flex-grow-1">
+    <main role="main" class="h-auto d-flex flex-row container-xxl overflow-visible">
+        <nav class="bg-transparent px-4 d-none d-sm-block text-end">
+            <ul class="navbar-nav">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-page="/Admin/Index">Admin</a>
+                    </li>
+                }
+                <li class="nav-item">
+                    <a class="nav-link text-light" asp-page="/About">About</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" asp-area="" asp-page="/Posts/Skilling">Skilling</a>
                 </li>
@@ -68,13 +80,13 @@
                 </li>
                 
             </ul>
-        </div>
-        <div class="box-shadow flex-grow-1 p-4 container border-start border-top border-bottom bg-black" data-bs-theme="dark">
+        </nav>
+        <section class="box-shadow flex-grow-1 p-4 container border-start border-top border-bottom bg-black">
             @RenderBody()
-        </div>
+        </section>
     </main>
 
-    <footer class="box-shadow text-muted p-4 text-light" data-bs-theme="dark">
+    <footer class="box-shadow text-muted p-4 text-light">
         <div class="d-flex justify-content-between align-items-center container">
             <span>&copy; 2025 - lilgobguides</span>
        
