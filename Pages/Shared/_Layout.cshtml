@@ -16,7 +16,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - lilgobguides</title>
+    <title>@ViewData["Title"] - lil gob slayer guides</title>
     <link rel="stylesheet" href="~/css/bootstrap-custom.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lilgobguides.styles.css" asp-append-version="true" />
@@ -28,25 +28,16 @@
     <header class="bg-transparent">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow">
             <div class="container">
-                <a class="navbar-brand text-light" asp-area="" asp-page="/Index">lilgobguides</a>
+                <a class="navbar-brand text-light" asp-area="" asp-page="/Index">
+                    <i class="bi bi-fire"></i> lil gob slayer guides
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item d-sm-none">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Posts/Skilling">Skilling</a>
-                        </li>
-                        <li class="nav-item d-sm-none">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Posts/Minigames">Minigames</a>
-                        </li>
-                        <li class="nav-item d-sm-none">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Posts/Items">Items</a>
-                        </li>
-                        <li class="nav-item d-sm-none">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Posts/Bosses">Bosses</a>
-                        </li>
+                <div class="navbar-collapse collapse flex-column flex-sm-row align-items-start align-items-sm-center justify-content-sm-end column-gap-3">
+                    <ul class="navbar-nav flex-grow-1 d-sm-none">
+                        @await Html.PartialAsync("_NavLinks")
                     </ul>
 
                     @await Html.PartialAsync("_LoginPartial")
@@ -55,25 +46,9 @@
         </nav>
     </header>
     <main role="main" class="h-auto d-flex flex-row container-xxl overflow-visible">
-        <nav class="bg-transparent px-4 d-none d-sm-block text-end">
+        <nav class="bg-transparent pe-4 d-none d-sm-block text-end">
             <ul class="navbar-nav">
-                
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-page="/About">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-page="/Posts/Skilling">Skilling</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-page="/Posts/Minigames">Minigames</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-page="/Posts/Items">Items</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-page="/Posts/Bosses">Bosses</a>
-                </li>
-                
+                @await Html.PartialAsync("_NavLinks")
             </ul>
         </nav>
         <section class="box-shadow flex-grow-1 p-4 container border-start border-top border-bottom bg-black">
@@ -83,7 +58,7 @@
 
     <footer class="box-shadow text-muted p-4 text-light">
         <div class="d-flex justify-content-between align-items-center container">
-            <span>&copy; 2025 - lilgobguides</span>
+            <span>&copy; 2025 - lil gob slayer guides</span>
        
             <img src="/images/wolf.png" width="25px" height="25px" alt="awooo!" title="awooo!" /> 
         </div>
