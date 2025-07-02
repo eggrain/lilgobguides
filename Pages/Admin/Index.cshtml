@@ -9,3 +9,16 @@
 <div>
     <a asp-page="/Posts/NewPost">Create post</a>
 </div>
+
+<section class="my-2">
+    <h2>Posts</h2>
+
+    <div class="list-group">
+        @foreach (Post post in Model.Posts)
+        {
+            <a asp-page="/Posts/ShowPost" asp-route-id="@post.Id" class="list-group-item list-group-item-action">
+                @post.Title
+            </a>
+        }
+    </div>
+</section>

@@ -57,12 +57,7 @@
     <main role="main" class="h-auto d-flex flex-row container-xxl overflow-visible">
         <nav class="bg-transparent px-4 d-none d-sm-block text-end">
             <ul class="navbar-nav">
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-page="/Admin/Index">Admin</a>
-                    </li>
-                }
+                
                 <li class="nav-item">
                     <a class="nav-link text-light" asp-page="/About">About</a>
                 </li>

@@ -1,7 +1,4 @@
 using lilgobguides.Data;
-using lilgobguides.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace lilgobguides.Pages.Posts;
