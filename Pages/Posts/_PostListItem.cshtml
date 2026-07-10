@@ -19,40 +19,33 @@
     }
 }
 
-<div class="post-list-item">
-    <a asp-page="/Posts/ShowPost"
-       asp-route-id="@Model.Id"
-       class="post-list-item-link">
-        @Model.Title
-    </a>
 
-    <div class="post-list-item-preview">
-        <div class="card post-list-item-card">
-            @if (imageSource != null)
+<a asp-page="/Posts/ShowPost" asp-route-id="@Model.Id" class="post-list-item-link">
+    @Model.Title
+</a>
+
+<div class="post-list-item-preview">
+    <div class="card post-list-item-card">
+        @if (imageSource != null)
+        {
+            <img src="@imageSource" class="card-img-top post-list-item-image" alt="" />
+        }
+
+        <div class="card-body">
+            <h5 class="card-title">
+                @Model.Title
+            </h5>
+
+            @if (!string.IsNullOrWhiteSpace(excerpt))
             {
-                <img src="@imageSource"
-                     class="card-img-top post-list-item-image"
-                     alt="" />
+                <p class="card-text">
+                    @excerpt
+                </p>
             }
 
-            <div class="card-body">
-                <h5 class="card-title">
-                    @Model.Title
-                </h5>
-
-                @if (!string.IsNullOrWhiteSpace(excerpt))
-                {
-                    <p class="card-text">
-                        @excerpt
-                    </p>
-                }
-
-                <a asp-page="/Posts/ShowPost"
-                   asp-route-id="@Model.Id"
-                   class="btn btn-primary">
-                    Read more
-                </a>
-            </div>
+            <a asp-page="/Posts/ShowPost" asp-route-id="@Model.Id" class="btn btn-primary">
+                Read more
+            </a>
         </div>
     </div>
 </div>

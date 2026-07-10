@@ -1,6 +1,5 @@
 using lilgobguides.Data;
 using lilgobguides.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,11 +9,13 @@ public class IndexModel(AppDbContext db) : PageModel
 {
     private readonly AppDbContext _db = db;
 
-    public List<Post> Featured { get; private set;  } = [];
+    public List<Post> Posts { get; private set; } = [];
 
-    public async Task OnGet()
+    public async Task OnGetAsync()
     {
-        Featured = await _db.Posts.Where(p => p.Featured == true)
-                                .AsNoTracking().ToListAsync();
+        Posts = await _db.Posts
+            .AsNoTracking()
+            .OrderByDescending(post => post.CreatedAt)
+            .ToListAsync();
     }
 }

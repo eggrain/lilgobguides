@@ -1,32 +1,83 @@
 ﻿@page
 @using lilgobguides.Models
 @model IndexModel
+
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="">
+<div>
     <h1>Milkraven's notes</h1>
 
-    <p class="fs-4">Old School Runescape guides for Ultimate Irons...</p>
+    <p class="fs-4">
+        Old School Runescape Ultimate Ironman notes
+    </p>
 </div>
 
-<nav class="my-4">
-    <div class="d-flex flex-wrap gap-3 align-items-center">
-        <a asp-page="Posts/Skilling" class="btn btn-outline-primary">Skilling</a>
-        <a asp-page="Posts/Minigames" class="btn btn-outline-primary">Minigames</a>
-        <a asp-page="Posts/Items" class="btn btn-outline-primary">Items</a>
-        <a asp-page="Posts/Bosses" class="btn btn-outline-primary">Bosses</a>
-    </div>
-</nav>
+<section class="my-4">
+    <div class="col-lg-5">
+        <label for="post-search" class="form-label">
+            Search
+        </label>
 
-<h2 class="my-4">featured posts</h2>
-
-<section>
-    <div class="list-group list-group-flush col-lg-5">
-        @foreach (Post post in Model.Featured)
-        {
-            <partial name="Posts/_PostListItem" model="post" />
-        }
+        <input id="post-search"
+               type="search"
+               class="form-control"
+               placeholder="Search by title..."
+               autocomplete="off" />
     </div>
 </section>
+
+<section>
+    <div id="post-list"
+         class="list-group list-group-flush col-lg-5">
+
+        @foreach (Post post in Model.Posts)
+        {
+            <div class="post-search-result post-list-item text-break text-light"
+                 data-post-title="@post.Title.ToLowerInvariant()">
+
+                <partial name="Posts/_PostListItem" model="post" />
+            </div>
+        }
+    </div>
+
+    <p id="no-post-results"
+       class="text-muted d-none">
+        No guides matched your search.
+    </p>
+</section>
+
+@section Scripts {
+    <script>
+        (() => {
+            const searchInput = document.getElementById("post-search");
+            const postResults = document.querySelectorAll(".post-search-result");
+            const noResultsMessage = document.getElementById("no-post-results");
+
+            searchInput.addEventListener("input", () => {
+                const searchTerm = searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+                let visiblePostCount = 0;
+
+                for (const postResult of postResults) {
+                    const postTitle = postResult.dataset.postTitle ?? "";
+                    const matches = postTitle.includes(searchTerm);
+
+                    postResult.classList.toggle("d-none", !matches);
+
+                    if (matches) {
+                        visiblePostCount++;
+                    }
+                }
+
+                noResultsMessage.classList.toggle(
+                    "d-none",
+                    visiblePostCount > 0
+                );
+            });
+        })();
+    </script>
+}
