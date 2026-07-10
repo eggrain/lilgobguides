@@ -5,14 +5,14 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1>lil gob slayer guides</h1>
+<div class="">
+    <h1>Milkraven's notes</h1>
 
     <p class="fs-4">Old School Runescape guides for Ultimate Irons...</p>
 </div>
 
 <nav class="my-4">
-    <div class="d-flex flex-wrap gap-3 align-items-center justify-content-center">
+    <div class="d-flex flex-wrap gap-3 align-items-center">
         <a asp-page="Posts/Skilling" class="btn btn-outline-primary">Skilling</a>
         <a asp-page="Posts/Minigames" class="btn btn-outline-primary">Minigames</a>
         <a asp-page="Posts/Items" class="btn btn-outline-primary">Items</a>
@@ -20,13 +20,13 @@
     </div>
 </nav>
 
-<h2 class="my-4 text-center">featured posts</h2>
+<h2 class="my-4">featured posts</h2>
 
 <section>
-    <div class="d-flex justify-content-around align-items-start flex-wrap column-gap-3 row-gap-5">
+    <div class="list-group list-group-flush col-lg-5">
         @foreach (Post post in Model.Featured)
         {
-            <partial name="Posts/_PostCard" model="post" />
+            <partial name="Posts/_PostListItem" model="post" />
         }
     </div>
 </section>

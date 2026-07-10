@@ -64,3 +64,80 @@ a:hover {
   text-decoration: underline dotted;
 }
 
+
+/* Showing post card on hover post list item */
+.post-list-item {
+    position: relative;
+}
+
+.post-list-item-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: inherit;
+    text-decoration: none;
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-bottom-width: 0;
+}
+
+.post-list-item:first-child .post-list-item-link {
+    border-top-left-radius: var(--bs-border-radius);
+    border-top-right-radius: var(--bs-border-radius);
+}
+
+.post-list-item:last-child .post-list-item-link {
+    border-bottom-width: 1px;
+    border-bottom-left-radius: var(--bs-border-radius);
+    border-bottom-right-radius: var(--bs-border-radius);
+}
+
+.post-list-item-link:hover,
+.post-list-item-link:focus {
+    color: var(--bs-primary);
+    background-color: var(--bs-tertiary-bg);
+}
+
+.post-list-item-preview {
+    position: absolute;
+    top: 0;
+    left: calc(80% + 1rem);
+    z-index: 1000;
+
+    width: 20rem;
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateX(-0.5rem);
+
+    transition:
+        opacity 120ms ease,
+        transform 120ms ease,
+        visibility 120ms;
+}
+
+.post-list-item:hover .post-list-item-preview,
+.post-list-item:focus-within .post-list-item-preview {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+.post-list-item-card {
+    width: 20rem;
+    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 20%);
+}
+
+.post-list-item-image {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+}
+
+@media (max-width: 991.98px) {
+    .post-list-item-preview {
+        display: none;
+    }
+}
