@@ -14,16 +14,23 @@
     </p>
 </div>
 
-@if (Model.FeaturedPost is not null)
+@if (Model.FeaturedPosts.Count > 0)
 {
-    <section class="my-4 col-lg-5">
-        <h2 class="h4">
-            Featured
-        </h2>
+    <section class="my-4">
+        <div class="col-lg-5">
+            <h2 class="h4">
+                Featured
+            </h2>
 
-        <div class="post-list-item text-break text-light">
-            <partial name="Posts/_PostListItem"
-                     model="Model.FeaturedPost" />
+            <div class="list-group list-group-flush">
+                @foreach (Post post in Model.FeaturedPosts)
+                {
+                    <div class="post-list-item text-break text-light">
+                        <partial name="Posts/_PostListItem"
+                                 model="post" />
+                    </div>
+                }
+            </div>
         </div>
     </section>
 }

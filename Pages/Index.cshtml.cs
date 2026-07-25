@@ -9,7 +9,7 @@ public class IndexModel(AppDbContext db) : PageModel
 {
     private readonly AppDbContext _db = db;
 
-    public Post? FeaturedPost { get; private set; }
+    public List<Post> FeaturedPosts { get; private set; } = [];
 
     public List<Post> Posts { get; private set; } = [];
 
@@ -21,12 +21,12 @@ public class IndexModel(AppDbContext db) : PageModel
             .OrderByDescending(post => post.CreatedAt)
             .ToListAsync();
 
-        FeaturedPost = allPosts.FirstOrDefault(post => post.Featured);
+        FeaturedPosts = allPosts
+            .Where(post => post.Featured)
+            .ToList();
 
-        Posts = FeaturedPost is null
-            ? allPosts
-            : allPosts
-                .Where(post => post.Id != FeaturedPost.Id)
-                .ToList();
+        Posts = allPosts
+            .Where(post => !post.Featured)
+            .ToList();
     }
 }
